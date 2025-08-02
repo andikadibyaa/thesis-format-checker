@@ -1,0 +1,658 @@
+{
+  "paper_size": "A4",
+  "orientation": "portrait",
+  "cover": {
+    "logo": {
+      "position": {
+        "top": "20mm",
+        "left": "10mm"
+      },
+      "size": {
+        "height": "45mm"
+      },
+      "color": "RGB(0,103,172)"
+    },
+    "title": {
+      "text_case": "uppercase",
+      "alignment": "left",
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 18,
+        "weight": "bold"
+      },
+      "margin_top": "30mm"
+    },
+    "subtitle": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      },
+      "alignment": "left"
+    },
+    "student_name": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "student_nrp": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "advisor": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "advisor_name": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "advisor_nip": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "study_program": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12,
+        "weight": "bold"
+      }
+    },
+    "department_faculty_institute": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12
+      }
+    },
+    "year": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12
+      }
+    },
+    "english_text": {
+      "style": "italic"
+    },
+    "background_color": "RGB(0,103,172)",
+    "text_color": "white",
+    "margin_bottom": "20mm"
+  },
+  "second_page": {
+    "paper_color": "white",
+    "content": "empty"
+  },
+  "third_page": {
+    "logo": {
+      "position": {
+        "top": "20mm",
+        "left": "10mm"
+      },
+      "size": {
+        "height": "45mm"
+      }
+    },
+    "title": {
+      "text": "TUGAS AKHIR - QQXXXXXX",
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      },
+      "margin_top": "10mm",
+      "alignment": "left"
+    },
+    "main_title": {
+      "text_case": "uppercase",
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 18,
+        "weight": "bold"
+      },
+      "margin_top": "30mm",
+      "alignment": "left"
+    },
+    "student_name": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "student_nrp": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "advisor": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "advisor_name": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "advisor_nip": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "study_program": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12,
+        "weight": "bold"
+      }
+    },
+    "department_faculty_institute": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12
+      }
+    },
+    "year": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12
+      }
+    },
+    "margin_bottom": "20mm"
+  },
+  "fourth_page": {
+    "paper_color": "white",
+    "content": "empty"
+  },
+  "fifth_page": {
+    "logo": {
+      "position": {
+        "top": "20mm",
+        "left": "10mm"
+      },
+      "size": {
+        "height": "45mm"
+      }
+    },
+    "title": {
+      "text": "FINAL PROJECT - QQXXXXXX",
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      },
+      "margin_top": "10mm",
+      "alignment": "left"
+    },
+    "main_title": {
+      "text_case": "uppercase",
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 18,
+        "weight": "bold"
+      },
+      "margin_top": "30mm",
+      "alignment": "left"
+    },
+    "student_name": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "student_nrp": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "advisor": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "advisor_name": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "advisor_nip": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 14
+      }
+    },
+    "study_program": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12,
+        "weight": "bold"
+      }
+    },
+    "department_faculty_institute": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12
+      }
+    },
+    "year": {
+      "font": {
+        "family": "Trebuchet MS",
+        "size": 12
+      }
+    },
+    "margin_bottom": "20mm"
+  },
+  "sixth_page": {
+    "paper_color": "white",
+    "content": "empty"
+  },
+  "seventh_page": {
+    "type": "approval_sheet",
+    "margin": {
+      "top": "3cm",
+      "bottom": "2.5cm",
+      "left": "3cm",
+      "right": "2.5cm"
+    },
+    "title": {
+      "text": "LEMBAR PENGESAHAN",
+      "alignment": "center",
+      "font": {
+        "family": "Times New Roman",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "main_title": {
+      "text_case": "uppercase",
+      "alignment": "center",
+      "font": {
+        "family": "Times New Roman",
+        "size": 12,
+        "weight": "bold"
+      }
+    },
+    "body": {
+      "font": {
+        "family": "Times New Roman",
+        "size": 12
+      },
+      "structure": [
+        "TUGAS AKHIR",
+        "Deskripsi pengajuan tugas akhir",
+        "Program Studi, Departemen, Fakultas, Institut",
+        "Nama Mahasiswa dan NRP",
+        "Tanggal Ujian dan Periode Wisuda",
+        "Pembimbing dan Ko-Pembimbing (jika ada)",
+        "Penguji 1 dan Penguji 2",
+        "Kepala Departemen dan tanda tangan"
+      ]
+    },
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-right",
+      "start_number": "i"
+    }
+  },
+  "eighth_page": {
+    "content": "(Halaman ini sengaja dikosongkan)",
+    "content_position": "center",
+    "content_alignment": "center",
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-left",
+      "number": "ii"
+    }
+  },
+  "ninth_page": {
+    "type": "approval_sheet_en",
+    "margin": {
+      "top": "3cm",
+      "bottom": "2.5cm",
+      "left": "3cm",
+      "right": "2.5cm"
+    },
+    "title": {
+      "text": "APPROVAL SHEET",
+      "alignment": "center",
+      "font": {
+        "family": "Times New Roman",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "main_title": {
+      "text_case": "uppercase",
+      "alignment": "center",
+      "font": {
+        "family": "Times New Roman",
+        "size": 12,
+        "weight": "bold"
+      }
+    },
+    "body": {
+      "font": {
+        "family": "Times New Roman",
+        "size": 12
+      },
+      "structure": [
+        "FINAL PROJECT PROPOSAL",
+        "Deskripsi pengajuan tugas akhir dalam bahasa Inggris",
+        "Bachelor Program, Department, Faculty, Institute",
+        "Name of Student and NRP",
+        "Exam Date and Graduation Period",
+        "Advisors and Co-Advisors (if any)",
+        "Examiners 1 and 2",
+        "Head of Department and signature"
+      ]
+    },
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-right",
+      "number": "iii"
+    }
+  },
+  "tenth_page": {
+    "content": "(Halaman ini sengaja dikosongkan)",
+    "content_position": "center",
+    "content_alignment": "center",
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-left",
+      "number": "iv"
+    }
+  },
+  "eleventh_page": {
+    "type": "originality_statement",
+    "margin": {
+      "top": "3cm",
+      "bottom": "2.5cm",
+      "left": "3cm",
+      "right": "2.5cm"
+    },
+    "title": {
+      "text": "PERNYATAAN ORISINALITAS",
+      "alignment": "center",
+      "font": {
+        "family": "Times New Roman",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "body": {
+      "font": {
+        "family": "Times New Roman",
+        "size": 12
+      },
+      "structure": [
+        "Identitas mahasiswa dan pembimbing",
+        "Pernyataan orisinalitas karya",
+        "Sanksi jika ditemukan ketidaksesuaian",
+        "Tempat dan tanggal",
+        "Tanda tangan pembimbing dan mahasiswa"
+      ]
+    },
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-right",
+      "number": "v"
+    }
+  },
+  "twelfth_page": {
+    "content": "(Halaman ini sengaja dikosongkan)",
+    "content_position": "center",
+    "content_alignment": "center",
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-left",
+      "number": "vi"
+    }
+  },
+  "thirteenth_page": {
+    "type": "originality_statement_en",
+    "margin": {
+      "top": "3cm",
+      "bottom": "2.5cm",
+      "left": "3cm",
+      "right": "2.5cm"
+    },
+    "title": {
+      "text": "STATEMENT OF ORIGINALITY",
+      "alignment": "center",
+      "font": {
+        "family": "Times New Roman",
+        "size": 14,
+        "weight": "bold"
+      }
+    },
+    "body": {
+      "font": {
+        "family": "Times New Roman",
+        "size": 12
+      },
+      "structure": [
+        "Name of student and NRP",
+        "Department",
+        "Advisor and NIP",
+        "Statement of originality in English",
+        "Sanction statement in English",
+        "Place and date",
+        "Signature of advisor and student"
+      ]
+    },
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-right",
+      "number": "vii"
+    }
+  },
+  "fourteenth_page": {
+    "content": "(Halaman ini sengaja dikosongkan)",
+    "content_position": "center",
+    "content_alignment": "center",
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-left",
+      "number": "viii"
+    }
+  },
+  "fifteenth_page": {
+    "type": "abstract",
+    "margin": {
+      "top": "3cm",
+      "bottom": "2.5cm",
+      "left": "3cm",
+      "right": "2.5cm"
+    },
+    "title": {
+      "text": "ABSTRAK",
+      "alignment": "center",
+      "font": {
+        "family": "Times New Roman",
+        "size": 12,
+        "weight": "bold",
+        "text_case": "uppercase"
+      }
+    },
+    "identity": {
+      "student": {
+        "label": "Nama Mahasiswa / NRP",
+        "font": {
+          "family": "Times New Roman",
+          "size": 12,
+          "weight": "bold"
+        }
+      },
+      "department": {
+        "label": "Prodi, Departemen",
+        "font": {
+          "family": "Times New Roman",
+          "size": 12,
+          "weight": "bold"
+        }
+      },
+      "advisor": {
+        "label": "Dosen Pembimbing",
+        "font": {
+          "family": "Times New Roman",
+          "size": 12,
+          "weight": "bold"
+        }
+      }
+    },
+    "body": {
+      "font": {
+        "family": "Times New Roman",
+        "size": 12
+      },
+      "italic_terms": [
+        "Series Active Variable Geometry Suspension",
+        "linkage",
+        "single link",
+        "state-feedback control system"
+      ]
+    },
+    "keywords": {
+      "label": "Kata kunci",
+      "font": {
+        "family": "Times New Roman",
+        "size": 12,
+        "weight": "bold"
+      },
+      "italic": true
+    },
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-right",
+      "number": "ix"
+    }
+  },
+  "sixteenth_page": {
+    "content": "(Halaman ini sengaja dikosongkan)",
+    "content_position": "center",
+    "content_alignment": "center",
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-left",
+      "number": "x"
+    }
+  },
+  "seventeenth_page": {
+    "type": "abstract_en",
+    "margin": {
+      "top": "3cm",
+      "bottom": "2.5cm",
+      "left": "3cm",
+      "right": "2.5cm"
+    },
+    "title": {
+      "text": "ABSTRACT",
+      "alignment": "center",
+      "font": {
+        "family": "Times New Roman",
+        "size": 12,
+        "weight": "bold",
+        "text_case": "uppercase"
+      }
+    },
+    "identity": {
+      "student": {
+        "label": "Student Name / NRP",
+        "font": {
+          "family": "Times New Roman",
+          "size": 12,
+          "weight": "bold"
+        }
+      },
+      "department": {
+        "label": "Program, department",
+        "font": {
+          "family": "Times New Roman",
+          "size": 12,
+          "weight": "bold"
+        }
+      },
+      "advisor": {
+        "label": "Advisor",
+        "font": {
+          "family": "Times New Roman",
+          "size": 12,
+          "weight": "bold"
+        }
+      }
+    },
+    "body": {
+      "font": {
+        "family": "Times New Roman",
+        "size": 12
+      }
+    },
+    "keywords": {
+      "label": "Keywords",
+      "font": {
+        "family": "Times New Roman",
+        "size": 12,
+        "weight": "bold"
+      },
+      "italic": true,
+      "note": "*Keyword urut abjad"
+    },
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-right",
+      "number": "xi"
+    }
+  },
+  "eighteenth_page": {
+    "content": "(Halaman ini sengaja dikosongkan)",
+    "content_position": "center",
+    "content_alignment": "center",
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-left",
+      "number": "xii"
+    }
+  },
+  "page_margins": {
+    "start_page": 7,
+    "margin": {
+      "top": "3cm",
+      "bottom": "2.5cm",
+      "left": "3cm",
+      "right": "2.5cm"
+    },
+    "page_numbering": {
+      "type": "roman",
+      "position": "bottom-right",
+      "start_number": "i"
+    }
+  },
+  "page_numbering_rules": {
+    "type": "roman",
+    "odd_position": "bottom-right",
+    "even_position": "bottom-left",
+    "start_page": 7,
+    "start_number": "i"
+  }
+}
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis Format Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Sistem Pemeriksa Format Tugas Akhir</h1>
+            <p>Upload dokumen tugas akhir Anda untuk pemeriksaan format otomatis</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="student-info">
+                <h3>Informasi Mahasiswa</h3>
+                <input type="text" id="studentName" placeholder="Nama Mahasiswa">
+                <input type="text" id="studentId" placeholder="NIM">
+                <select id="degree">
+                    <option value="undergraduate">S1</option>
+                    <option value="master">S2</option>
+                    <option value="phd">S3</option>
+                </select>
+            </div>
+
+            <div class="file-upload">
+                <h3>Upload Dokumen</h3>
+                <input type="file" id="pdfFile" accept=".pdf">
+                <button id="checkDocument" onclick="checkDocument()">
+                    🔍 Periksa Format Dokumen
+                </button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Sedang memeriksa format dokumen...</p>
+        </div>
+
+        <div id="results" class="results hidden">
+            <h3>Hasil Pemeriksaan</h3>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
