@@ -52,11 +52,13 @@ class Config:
     3. Format penomoran halaman
     4. Konsistensi penulisan judul BAB
     5. Struktur daftar pustaka
+    6. **Periksa juga kesalahan penulisan, ejaan, dan tata bahasa sesuai PUEBI (Pedoman Umum Ejaan Bahasa Indonesia). Jika ada kesalahan, sebutkan contoh dan rekomendasinya.**
 
     Berikan penilaian dalam format JSON dengan field:
     - skor_keseluruhan (0-100)
     - bagian_yang_hilang (array)
     - masalah_format (array)
+    - masalah_puebi (array)  # <-- TAMBAHKAN FIELD INI
     - rekomendasi (array)
     - status_kepatuhan (LULUS/GAGAL/PERLU_PERBAIKAN)
     Semua penjelasan dan rekomendasi WAJIB dalam bahasa Indonesia.

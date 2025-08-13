@@ -60,6 +60,7 @@ class ThesisFormatChecker:
                 # Pastikan semua field array ada
                 data.setdefault("missing_sections", [])
                 data.setdefault("format_issues", [])
+                data.setdefault("masalah_puebi", [])  
                 data.setdefault("recommendations", [])
                 data.setdefault("overall_score", 0)
                 data.setdefault("compliance_status", "PERLU_PERBAIKAN")
@@ -72,6 +73,7 @@ class ThesisFormatChecker:
             "overall_score": self._extract_score(response),
             "missing_sections": [],
             "format_issues": [],
+            "masalah_puebi": [],  
             "recommendations": [],
             "compliance_status": self._determine_compliance(response)
         }
@@ -81,7 +83,6 @@ class ThesisFormatChecker:
         missing_sections = []
         found_sections = []
 
-        # Gunakan required_sections dari format_guide jika ada
         required_sections = self.format_guide.get("required_sections", self.required_sections)
         text_upper = text.upper()
 
