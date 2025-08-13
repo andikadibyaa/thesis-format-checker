@@ -6,7 +6,7 @@ load_dotenv()
 class Config:
     # API Keys
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-    MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+    MONGO_URI = os.getenv("MONGO_URI")
     
     # Document Format Rules
     REQUIRED_SECTIONS = [
