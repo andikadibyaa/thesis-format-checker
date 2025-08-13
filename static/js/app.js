@@ -2,7 +2,7 @@ async function checkDocument() {
     const fileInput = document.getElementById('pdfFile');
     const studentName = document.getElementById('studentName').value;
     const studentId = document.getElementById('studentId').value;
-    const degree = document.getElementById('degree').value;
+
     
     if (!fileInput.files[0]) {
         alert('Silakan pilih file PDF terlebih dahulu');
@@ -30,7 +30,6 @@ async function checkDocument() {
             student_info: {
                 name: studentName,
                 student_id: studentId,
-                degree: degree
             }
         };
         

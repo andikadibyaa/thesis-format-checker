@@ -45,18 +45,19 @@ class Config:
     # LLM Prompts
     DOCUMENT_ANALYSIS_PROMPT = """
     Anda adalah sistem otomatis untuk memeriksa format dokumen tugas akhir mahasiswa.
-    
+
     Analisis dokumen berikut dan periksa:
     1. Kelengkapan struktur BAB (I, II, III, IV, V)
     2. Keberadaan halaman wajib (Abstrak, Daftar Isi, dll)
     3. Format penomoran halaman
     4. Konsistensi penulisan judul BAB
     5. Struktur daftar pustaka
-    
+
     Berikan penilaian dalam format JSON dengan field:
-    - overall_score (0-100)
-    - missing_sections (array)
-    - format_issues (array)  
-    - recommendations (array)
-    - compliance_status (PASS/FAIL/NEEDS_REVISION)
+    - skor_keseluruhan (0-100)
+    - bagian_yang_hilang (array)
+    - masalah_format (array)
+    - rekomendasi (array)
+    - status_kepatuhan (LULUS/GAGAL/PERLU_PERBAIKAN)
+    Semua penjelasan dan rekomendasi WAJIB dalam bahasa Indonesia.
     """

@@ -3,6 +3,7 @@ import os
 import PyPDF2
 from typing import Tuple
 import logging
+import pdfplumber
 
 class PDFProcessor:
     def __init__(self, upload_dir="static/uploads"):
@@ -89,3 +90,26 @@ class PDFProcessor:
             logging.error(f"PDF validation error: {e}")
         
         return validation_result
+    
+    def detect_page_number_positions(self, file_path):
+        positions = []
+        with pdfplumber.open(file_path) as pdf:
+            for i, page in enumerate(pdf.pages):
+                text_objs = page.extract_words()
+                # Cari angka di bagian bawah halaman
+                for obj in text_objs:
+                    if obj['text'].isdigit():
+                        # Cek posisi Y (bawah), dan X (kiri/tengah/kanan)
+                        y = obj['bottom']
+                        x = obj['x0']
+                        width = page.width
+                        height = page.height
+                        if y > height * 0.9:  # bawah
+                            if x < width * 0.3:
+                                pos = "bottom-left"
+                            elif x > width * 0.7:
+                                pos = "bottom-right"
+                            else:
+                                pos = "bottom-center"
+                            positions.append({"page": i+1, "position": pos, "number": obj['text']})
+        return positions

@@ -89,7 +89,7 @@ def check_document():
         # Analyze document format
         format_analysis = checker.analyze_document_structure(extracted_text)
         # Cek detail halaman/bagian bermasalah
-        page_issues = checker.check_page_format(extracted_text, pdf_metadata)
+        page_issues = checker.check_page_format(extracted_text, pdf_metadata, file_path=file_path)
         format_analysis["page_issues"] = page_issues
         
         # Compare with template if available

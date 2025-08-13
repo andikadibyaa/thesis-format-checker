@@ -653,6 +653,36 @@
     "even_position": "bottom-left",
     "start_page": 7,
     "start_number": "i"
+  },
+  "required_sections": [
+    "HALAMAN JUDUL",
+    "LEMBAR PENGESAHAN",
+    "ABSTRAK",
+    "ABSTRACT",
+    "KATA PENGANTAR",
+    "DAFTAR ISI",
+    "DAFTAR GAMBAR",
+    "DAFTAR TABEL",
+    "BAB I PENDAHULUAN",
+    "BAB II TINJAUAN PUSTAKA",
+    "BAB III METODOLOGI",
+    "BAB IV HASIL DAN PEMBAHASAN",
+    "BAB V KESIMPULAN",
+    "DAFTAR PUSTAKA",
+    "LAMPIRAN"
+  ],
+  "format_rules": {
+    "font_size": 12,
+    "line_spacing": "1.5",
+    "margin": {
+      "top": "3cm",
+      "bottom": "3cm",
+      "left": "4cm",
+      "right": "3cm"
+    },
+    "min_pages": 50,
+    "max_pages": 100,
+    "page_numbering": "angka"
   }
 }
 

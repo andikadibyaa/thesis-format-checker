@@ -5,6 +5,7 @@ from config.settings import Config
 import json
 import re
 import os
+from utils.pdf_processor import PDFProcessor
 
 class ThesisFormatChecker:
     def __init__(self):
@@ -55,78 +56,88 @@ class ThesisFormatChecker:
             # Coba extract JSON dari response
             json_match = re.search(r'\{.*\}', response, re.DOTALL)
             if json_match:
-                return json.loads(json_match.group())
+                data = json.loads(json_match.group())
+                # Pastikan semua field array ada
+                data.setdefault("missing_sections", [])
+                data.setdefault("format_issues", [])
+                data.setdefault("recommendations", [])
+                data.setdefault("overall_score", 0)
+                data.setdefault("compliance_status", "PERLU_PERBAIKAN")
+                return data
         except:
             pass
         
         # Fallback parsing manual
         return {
             "overall_score": self._extract_score(response),
-            "missing_sections": self._extract_missing_sections(response),
-            "format_issues": self._extract_format_issues(response),
-            "recommendations": self._extract_recommendations(response),
+            "missing_sections": [],
+            "format_issues": [],
+            "recommendations": [],
             "compliance_status": self._determine_compliance(response)
         }
     
     def _fallback_analysis(self, text: str) -> Dict:
-        """Analisis fallback tanpa LLM"""
+        """Analisis fallback tanpa LLM, sesuai format_guide.json"""
         missing_sections = []
         found_sections = []
-        
+
+        # Gunakan required_sections dari format_guide jika ada
+        required_sections = self.format_guide.get("required_sections", self.required_sections)
         text_upper = text.upper()
-        
-        for section in self.required_sections:
+
+        for section in required_sections:
             if section.upper() in text_upper:
                 found_sections.append(section)
             else:
                 missing_sections.append(section)
-        
-        score = int((len(found_sections) / len(self.required_sections)) * 100)
-        
+
+        score = int((len(found_sections) / len(required_sections)) * 100)
+
         return {
             "overall_score": score,
             "missing_sections": missing_sections,
             "format_issues": self._check_basic_format_issues(text),
             "recommendations": self._generate_recommendations(missing_sections),
-            "compliance_status": "PASS" if score >= 80 else "NEEDS_REVISION"
+            "compliance_status": "LULUS" if score >= 80 else "PERLU_PERBAIKAN"
         }
-    
+
     def _check_basic_format_issues(self, text: str) -> List[str]:
-        """Periksa masalah format dasar"""
+        """Periksa masalah format dasar sesuai format_guide.json"""
         issues = []
-        
+        format_rules = self.format_guide.get("format_rules", {})
+
         # Cek panjang dokumen
-        pages_estimate = len(text) // 2000  # Rough estimation
-        if pages_estimate < 50:
-            issues.append("Dokumen terlalu pendek (kurang dari 50 halaman)")
-        
+        min_pages = format_rules.get("min_pages", 50)
+        pages_estimate = len(text) // 2000  # Estimasi kasar
+        if pages_estimate < min_pages:
+            issues.append(f"Dokumen terlalu pendek (kurang dari {min_pages} halaman)")
+
         # Cek struktur BAB
         bab_pattern = r'BAB\s+[IVX]+\s+'
         bab_matches = re.findall(bab_pattern, text.upper())
         if len(bab_matches) < 5:
             issues.append("Struktur BAB tidak lengkap (minimal 5 BAB)")
-        
+
         # Cek daftar pustaka
         if "DAFTAR PUSTAKA" not in text.upper():
             issues.append("Daftar Pustaka tidak ditemukan")
-        
+
+        # Cek margin (tidak bisa otomatis, hanya reminder)
+        margin = format_rules.get("margin", {})
+        if margin:
+            issues.append(
+                f"Periksa margin: atas {margin.get('top')}, bawah {margin.get('bottom')}, kiri {margin.get('left')}, kanan {margin.get('right')}"
+            )
+
+        # Cek font size (tidak bisa otomatis, hanya reminder)
+        font_size = format_rules.get("font_size", 12)
+        issues.append(f"Pastikan ukuran font {font_size}pt")
+
+        # Cek spasi (tidak bisa otomatis, hanya reminder)
+        line_spacing = format_rules.get("line_spacing", "1.5")
+        issues.append(f"Pastikan spasi {line_spacing}")
+
         return issues
-    
-    def _generate_recommendations(self, missing_sections: List[str]) -> List[str]:
-        """Generate rekomendasi perbaikan"""
-        recommendations = []
-        
-        if missing_sections:
-            recommendations.append(f"Lengkapi bagian yang hilang: {', '.join(missing_sections)}")
-        
-        recommendations.extend([
-            "Pastikan format font Times New Roman 12pt",
-            "Gunakan spasi 1.5 untuk isi dokumen", 
-            "Periksa margin sesuai panduan (kiri 4cm, kanan 3cm, atas-bawah 3cm)",
-            "Pastikan penomoran halaman konsisten"
-        ])
-        
-        return recommendations
     
     def compare_with_template(self, student_text: str, template_text: str) -> Dict:
         """Bandingkan dengan dokumen template"""
@@ -177,10 +188,9 @@ class ThesisFormatChecker:
         else:
             return "NEEDS_REVISION"
     
-    def check_page_format(self, extracted_text: str, pdf_metadata: dict) -> List[dict]:
-        """Cek format tiap halaman berdasarkan format_guide.json"""
+    def check_page_format(self, extracted_text: str, pdf_metadata: dict, file_path: str = None) -> List[dict]:
         issues = []
-        # Contoh: cek jumlah halaman
+        # Cek jumlah halaman
         min_pages = self.format_guide.get("format_rules", {}).get("min_pages", 50)
         if pdf_metadata.get("total_pages", 0) < min_pages:
             issues.append({
@@ -188,11 +198,27 @@ class ThesisFormatChecker:
                 "issue": f"Jumlah halaman kurang dari {min_pages}"
             })
         # Cek bagian wajib
-        required_sections = self.format_guide.get("required_sections", [])
+        required_sections = self.format_guide.get("required_sections", self.required_sections)
         for section in required_sections:
             if section.upper() not in extracted_text.upper():
                 issues.append({
                     "section": section,
                     "issue": "Bagian tidak ditemukan"
                 })
+        # Cek posisi nomor halaman jika file_path diberikan
+        if file_path:
+            pdf_processor = PDFProcessor()
+            positions = pdf_processor.detect_page_number_positions(file_path)
+            # Ambil aturan posisi dari format_guide
+            page_numbering_rules = self.format_guide.get("page_numbering_rules", {})
+            allowed_positions = [
+                page_numbering_rules.get("odd_position", "bottom-right"),
+                page_numbering_rules.get("even_position", "bottom-left")
+            ]
+            for pos in positions:
+                if pos["position"] not in allowed_positions:
+                    issues.append({
+                        "page": pos["page"],
+                        "issue": f"Nomor halaman di posisi {pos['position']} (harusnya di {', '.join(allowed_positions)})"
+                    })
         return issues
